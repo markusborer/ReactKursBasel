@@ -26,7 +26,7 @@ class PersonSearchPanel extends React.Component {
     render() {
         return (
             <ErrorBoundary>
-                <h2>Personensuche</h2>
+                <h2 className="left-align">Personensuche</h2>
                 <PersonSearchForm onChange={this.onChange} />
                 <PersonSearchResult persons={this.state.persons} />
             </ErrorBoundary>

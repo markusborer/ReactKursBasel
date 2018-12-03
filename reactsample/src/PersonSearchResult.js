@@ -1,4 +1,5 @@
 import React from 'react';
+import { Table } from 'react-materialize';
 
 class PersonSearchResult extends React.Component {
 
@@ -7,14 +8,14 @@ class PersonSearchResult extends React.Component {
             <PersonSearchRow person={person} key={person.id} />
         );
         return (
-            <table>
+            <Table hoverable={true}>
                 <thead>
                     <PersonSearchHeader />
                 </thead>
                 <tbody>
                     {rows}
                 </tbody>
-            </table>
+            </Table>
         )
     }
 
