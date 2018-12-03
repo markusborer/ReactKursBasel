@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Timer from './Timer';
 import Login from './Login';
+import PersonSearchPanel from './PersonSearchPanel';
 
 class App extends Component {
 
@@ -33,6 +34,7 @@ class App extends Component {
             <Timer />
             <Login isLoggedIn={this.state.isLoggedIn} onClick={this.onLoginClick} />
             {welcomeMessage}
+            {this.state.isLoggedIn && <PersonSearchPanel />}
         </main>
       </div>
     );
