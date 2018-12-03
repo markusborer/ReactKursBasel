@@ -1,34 +1,11 @@
 import React from 'react';
 
-class Login extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            isLoggedIn: false
-        }
+function Login(props) {
+    let buttonText = 'Login';
+    if (props.isLoggedIn) {
+        buttonText = 'Logout';
     }
-
-    onClick = () => {
-        this.setState({
-            isLoggedIn: !this.state.isLoggedIn
-        });
-    }
-
-    render() {
-        let welcomeMessage;
-        let buttonText = 'Login';
-        if (this.state.isLoggedIn) {
-            welcomeMessage = <div>{'Welcome ' + this.props.name}</div>;
-            buttonText = 'Logout';
-        }
-        return (
-            <>
-                <button onClick={this.onClick} >{buttonText}</button>
-                {welcomeMessage}
-            </>
-        )
-    }
+    return <button onClick={props.onClick} >{buttonText}</button>
 }
 
 export default Login;
