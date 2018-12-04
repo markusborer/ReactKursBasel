@@ -19,7 +19,7 @@ class PersonSearchPanel extends React.Component {
     }
 
     componentDidMount() {
-        fromEvent(this.eventTarget, "OnChange")
+        this.subscription = fromEvent(this.eventTarget, "OnChange")
             .pipe(
                 debounceTime(200),
                 switchMap(event => {
@@ -42,6 +42,10 @@ class PersonSearchPanel extends React.Component {
                     })
                 }
             });
+    }
+
+    componentWillUnmount() {
+        this.subscription.unsubscribe();
     }
 
     onChange = (text) => {
