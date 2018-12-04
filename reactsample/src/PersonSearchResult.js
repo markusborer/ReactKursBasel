@@ -1,24 +1,18 @@
 import React from 'react';
 import { Table } from 'react-materialize';
+import styles from './PersonSearchResult.module.css';
 
-class PersonSearchResult extends React.Component {
-
-    render() {
-        let rows = this.props.persons.map(person =>
-            <PersonSearchRow person={person} key={person.id} />
-        );
-        return (
-            <Table hoverable={true}>
-                <thead>
-                    <PersonSearchHeader />
-                </thead>
-                <tbody>
-                    {rows}
-                </tbody>
-            </Table>
-        )
-    }
-
+export default function PersonSearchResult(props) {
+    return (
+        <Table hoverable={true}>
+            <thead>
+                <PersonSearchHeader />
+            </thead>
+            <tbody>
+                {props.persons.map(person => <PersonSearchRow person={person} key={person.id} />)}
+            </tbody>
+        </Table>
+    )
 }
 
 function PersonSearchHeader() {
@@ -37,11 +31,9 @@ const PersonSearchRow = (props) => {
     }
     return (
         <tr>
-            <td>{props.person.id}</td>
+            <td className={styles.italic}>{props.person.id}</td>
             <td>{props.person.name}</td>
             <td>{props.person.vorname}</td>
         </tr>
     )
 }
-
-export default PersonSearchResult;
